@@ -1,0 +1,1 @@
+{/* Lista de pokemons en la pokedex*/} 

@@ -1,0 +1,1 @@
+{/* Preview de la ciudad o ruta que se le hizo click */}

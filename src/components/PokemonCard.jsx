@@ -1,0 +1,1 @@
+{/* Card que muestra el preview en la pokedex*/}

@@ -1,0 +1,1 @@
+{/*Pokemon seleccionado al hacer click en la lista*/}

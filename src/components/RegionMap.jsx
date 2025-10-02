@@ -1,0 +1,1 @@
+{/* Mapa de la region seleccionada*/}
