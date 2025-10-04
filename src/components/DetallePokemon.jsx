@@ -1,12 +1,11 @@
-{/*Pokemon seleccionado al hacer click en la lista*/}
-
 import React from 'react';
 
+// Muestra el Pokémon seleccionado con su imagen y tipo
 export default function DetallePokemon({ pokemon }) {
   if (!pokemon) {
     return (
       <div className="bg-gray-800 rounded-lg p-6 text-white text-center">
-        <p>Selecciona un Pokémon</p>
+        <p>Select a Pokemon</p>
       </div>
     );
   }
@@ -29,16 +28,40 @@ export default function DetallePokemon({ pokemon }) {
             className="w-full h-full object-contain pixelated"
           />
         ) : (
-          <div className="text-gray-400">Cargando...</div>
+          <div className="text-gray-400">Loading...</div>
         )}
       </div>
 
       {/* Tipo */}
       <div className="bg-white rounded-lg p-3 text-center">
         <p className="text-gray-900 font-medium">
-          Tipo: <span className="capitalize">{pokemon.types?.join(' / ') || 'Desconocido'}</span>
+          Type: <span className="capitalize">{pokemon.types?.join(' / ') || 'Unknown'}</span>
         </p>
       </div>
     </div>
   );
 }
+
+//Comentarios de aprendizaje:
+/*
+  Optional chaining ---> ?.
+    Previene errores al acceder a propiedades de un objeto que puede ser undefined o null.
+    Ejemplo: pokemon.types?.join(' / ') || 'Desconocido'
+    Si pokemon.types es undefined, se devuelve 'Desconocido'.
+
+    Como concatena?
+    pokemon.types?.join(' / ') || 'Desconocido'
+    pokemon.types es un array, por lo que se usa join para convertirlo en una cadena de texto.
+    
+    // Pokémon con un tipo
+    ['electric'].join(' / ')  
+    // Resultado: "electric"
+
+    // Pokémon con dos tipos
+    ['fire', 'flying'].join(' / ')  
+    // Resultado: "fire / flying"
+
+    // Pokémon con tres tipos (raro pero posible)
+    ['grass', 'poison', 'fairy'].join(' / ')
+    // Resultado: "grass / poison / fairy"
+*/

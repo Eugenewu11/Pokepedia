@@ -82,6 +82,26 @@ class PokeApiService extends ApiService {
       order: pokemonData.order 
     };
   }
+  
+  async getTiposPokemon() {
+    try {
+      const response = await this.request('type');
+      return response.results;
+    } catch (error) {
+      console.error('Error obteniendo tipos:', error);
+      throw error;
+    }
+  }
+  
+  async getHabitats() {
+    try {
+      const response = await this.request('pokemon-habitat');
+      return response.results;
+    } catch (error) {
+      console.error('Error obteniendo hábitats:', error);
+      throw error;
+    }
+  }
 }
 
 export default new PokeApiService();

@@ -12,10 +12,10 @@ const SeleccionMenu = () => {
 
   const opciones = [
     { nombre: 'Pokedex', ruta: '/pokedex' },
-    { nombre: 'Regiones', ruta: '/regiones' },
-    { nombre: 'Movimientos', ruta: '/movimientos' },
-    { nombre: 'Objetos', ruta: '/objetos' },
-    { nombre: 'Bayas', ruta: '/bayas' }
+    { nombre: 'Regions', ruta: '/regiones' },
+    { nombre: 'Movements', ruta: '/movimientos' },
+    { nombre: 'Objects', ruta: '/objetos' },
+    { nombre: 'Berries', ruta: '/bayas' }
   ];
 
   return (
@@ -48,7 +48,7 @@ const SeleccionMenu = () => {
           <div className="relative bg-gradient-to-b from-yellow-400 to-yellow-500 p-1 rounded-lg shadow-2xl border-4 border-gray-600 w-full max-w-md">
             <div className="bg-gradient-to-b from-gray-200 to-gray-300 p-4 sm:p-6 rounded border-4 border-yellow-500">
               <p className="text-sm sm:text-base text-gray-900 leading-relaxed font-medium">
-                Bienvenido entrenador! Aquí podrás encontrar información sobre los Pokémon y cada región
+                Welcome trainer! Here you can find information about the Pokemon of each region and more!
               </p>
             </div>
           </div>
@@ -57,7 +57,7 @@ const SeleccionMenu = () => {
         {/* Sección derecha - Menú de opciones */}
         <div className="bg-white rounded-lg shadow-2xl p-6 sm:p-8 w-full lg:flex-1 border-4 border-gray-300">
           <h2 className="text-xl sm:text-2xl font-bold text-gray-800 text-center mb-6 pb-3 border-b-2 border-gray-300">
-            Selecciona lo que buscas:
+            Navigate through our sections:
           </h2>
           
           <div className="space-y-3 sm:space-y-4">

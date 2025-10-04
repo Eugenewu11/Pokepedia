@@ -10,12 +10,12 @@ export default function Navbar() {
     }
 
     const enlaces = [
-        {nombre: 'Inicio', ruta: '/'},
+        {nombre: 'Home', ruta: '/'},
         {nombre: 'Pokedex', ruta: '/pokedex'},
-        {nombre: 'Regiones', ruta: '/regiones'},
-        {nombre: 'Movimientos', ruta: '/movimientos'},
-        {nombre: 'Objetos', ruta: '/objetos'},
-        {nombre: 'Bayas', ruta: '/bayas'}
+        {nombre: 'Regions', ruta: '/regiones'},
+        {nombre: 'Movements', ruta: '/movimientos'},
+        {nombre: 'Items', ruta: '/objetos'},
+        {nombre: 'Berries', ruta: '/bayas'}
     ]
 
     return (
