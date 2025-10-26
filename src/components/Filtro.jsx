@@ -1,1 +1,0 @@
-{/* Filtros de la pokedex */}

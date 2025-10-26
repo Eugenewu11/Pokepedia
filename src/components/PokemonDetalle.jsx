@@ -34,35 +34,51 @@ const PokemonDetalle = () => {
     -Si está vacío [], se ejecuta solo una vez.
     -Si contiene variables, se ejecuta cada vez que esas variables cambian.
   */
-  // Función para obtener la cadena de evolución
+  // Función recursiva para obtener la cadena de evolución completa
   const obtenerCadenaEvolucion = async (url) => {
     try {
-      // Extraer el path de la URL completa (eliminando el dominio base)
       const path = url.replace('https://pokeapi.co/api/v2/', '');
       const apiService = new ApiService();
       const data = await apiService.request(path);
       
-      // Obtener los datos de cada Pokémon en la cadena
-      const evolucionesData = await Promise.all(
-        data.chain.evolves_to.map(async (evolucion) => {
-          const pokemonData = await apiService.request(`pokemon/${evolucion.species.name}`);
-          return {
-            name: evolucion.species.name,
-            sprite: pokemonData.sprites.other['official-artwork']?.front_default || pokemonData.sprites.front_default,
-            id: pokemonData.id
-          };
-        })
-      );
+      // Función auxiliar recursiva para recorrer la cadena de evolución
+      const procesarEvoluciones = async (chain) => {
+        const evoluciones = [];
+        
+        // Obtener datos del Pokémon actual
+        const pokemonData = await apiService.request(`pokemon/${chain.species.name}`);
+        const pokemonInfo = {
+          name: chain.species.name,
+          sprite: pokemonData.sprites.other['official-artwork']?.front_default || pokemonData.sprites.front_default,
+          id: pokemonData.id
+        };
+        
+        // Si hay evoluciones, procesarlas recursivamente
+        if (chain.evolves_to && chain.evolves_to.length > 0) {
+          for (const evolucion of chain.evolves_to) {
+            const evolucionesSiguientes = await procesarEvoluciones(evolucion);
+            evoluciones.push(...evolucionesSiguientes);
+          }
+        }
+        
+        return [pokemonInfo, ...evoluciones];
+      };
       
-      // Agregar también el Pokémon base
-      const pokemonBase = await apiService.request(`pokemon/${data.chain.species.name}`);
-      evolucionesData.unshift({
-        name: data.chain.species.name,
-        sprite: pokemonBase.sprites.other['official-artwork']?.front_default || pokemonBase.sprites.front_default,
-        id: pokemonBase.id
-      });
+      // Obtener la cadena completa de evolución
+      const cadenaCompleta = await procesarEvoluciones(data.chain);
       
-      return evolucionesData;
+      // Eliminar duplicados (puede ocurrir en cadenas complejas)
+      const cadenasUnicas = [];
+      const nombresVistos = new Set();
+      
+      for (const pokemon of cadenaCompleta) {
+        if (!nombresVistos.has(pokemon.name)) {
+          nombresVistos.add(pokemon.name);
+          cadenasUnicas.push(pokemon);
+        }
+      }
+      
+      return cadenasUnicas;
     } catch (error) {
       console.error('Error al cargar la cadena de evolución:', error);
       return [];
