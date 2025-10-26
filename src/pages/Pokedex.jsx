@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar.jsx';
 import PokemonCard from '../components/PokemonCard.jsx';
-import DetallePokemon from '../components/DetallePokemon.jsx';
+import DetallePokemon from '../components/DetallePokemonCard.jsx';
 import BarraBusqueda from '../components/BarraBusqueda.jsx';
 import { usePokemonData } from '../hooks/usePokemonData.js';
 import { useInfiniteScroll } from '../hooks/useInfiniteScroll.js';

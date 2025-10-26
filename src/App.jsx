@@ -6,6 +6,7 @@ import Regiones from './pages/Regiones.jsx'
 import Movimientos from './pages/Movimientos.jsx'
 import Objetos from './pages/Objetos.jsx'
 import Bayas from './pages/Bayas.jsx'
+import PokemonDetalle from './components/PokemonDetalle.jsx'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/movimientos" element={<div>Movimientos</div>} />
         <Route path="/objetos" element={<div>Objetos</div>} />
         <Route path="/bayas" element={<div>Bayas</div>} />
+        <Route path="/pokemon/:id" element={<PokemonDetalle />} />
       </Routes>
    </div>
   )
