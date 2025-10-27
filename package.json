@@ -29,5 +29,18 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.13",
     "vite": "^7.1.7"
-  }
+  },
+  "description": "",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eugenewu11/Pokepedia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Eugenewu11/Pokepedia/issues"
+  },
+  "homepage": "https://github.com/Eugenewu11/Pokepedia#readme"
 }

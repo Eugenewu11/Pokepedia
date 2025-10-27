@@ -1,5 +1,5 @@
 
-import ApiService from './ApiService.js';
+import { ApiService } from './ApiService.js';
 
 class PokeApiService extends ApiService {
   constructor() {
