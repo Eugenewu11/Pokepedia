@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PokeApiService from '../services/PokeApiServicio';
+import Navbar from '../components/Navbar.jsx';
 
 //Objeto literal que contiene como clave el tipo del pokemon y valor el bg del color
 const tipoColores = {
@@ -132,8 +133,10 @@ export default function TablaMovimientos() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-600 to-red-800 p-4 md:p-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-red-600 to-red-800">
+      <Navbar />
+      <div className="pt-24 px-4 md:px-8 max-w-7xl mx-auto">
+        
         <div className="bg-white rounded-lg shadow-2xl p-4 md:p-6 mb-4 md:mb-6">
           <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-4 md:mb-6 gap-4">
             <button 
