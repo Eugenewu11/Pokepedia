@@ -15,9 +15,9 @@ function App() {
         <Route path="/" element={<SeleccionMenu />} />
         <Route path="/pokedex" element={<Pokedex />} />
         <Route path="/regiones" element={<div>Regiones</div>} />
-        <Route path="/movimientos" element={<div>Movimientos</div>} />
-        <Route path="/objetos" element={<div>Objetos</div>} />
-        <Route path="/bayas" element={<div>Bayas</div>} />
+        <Route path="/objetos" element={<Objetos />} />
+        <Route path="/bayas" element={<Bayas />} />
+        <Route path="/movimientos" element={<Movimientos/>} />
         <Route path="/pokemon/:id" element={<PokemonDetalle />} />
       </Routes>
    </div>

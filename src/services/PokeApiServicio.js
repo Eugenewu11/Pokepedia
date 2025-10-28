@@ -102,6 +102,43 @@ class PokeApiService extends ApiService {
       throw error;
     }
   }
+
+  // Obtener lista de movimientos
+  async getMovimientos(limit = 100, offset = 0) {
+    try {
+      const response = await fetch(`${this.baseURL}/move?limit=${limit}&offset=${offset}`);
+      const data = await response.json();
+      return data.results; 
+    } catch (error) {
+      console.error("Error al obtener los movimientos:", error);
+      return [];
+    }
+  }
+
+  // Obtener detalles de un movimiento
+  async getDetallesMovimiento(nameOrId) {
+    try {
+      const response = await fetch(`${this.baseURL}/move/${nameOrId}`);
+      if (!response.ok) throw new Error("Movimiento no encontrado");
+      const data = await response.json();
+
+      // Extraemos solo lo relevante
+      return {
+        id: data.id,
+        name: data.name,
+        power: data.power,
+        names: data.names.map(n => ({
+          language: n.language.name,
+          name: n.name
+        })),
+        damage_class: data.damage_class.name,
+        type: data.type.name
+      };
+    } catch (error) {
+      console.error("Error al obtener el movimiento:", error.message);
+      return null;
+    }
+  }
 }
 
 export default new PokeApiService();

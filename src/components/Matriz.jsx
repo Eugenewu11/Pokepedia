@@ -1,1 +1,0 @@
-{/* Matriz con caracteristicas para los objetos, bayas y movimientos*/}
